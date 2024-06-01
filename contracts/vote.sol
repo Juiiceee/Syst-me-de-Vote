@@ -24,7 +24,7 @@ contract votingSystem {
 
 	function vote(uint _index, bool _notice) public {
 		require(_index < tab.length, "out of bound");
-		require(is_voting[_index][msg.sender] == true, "not possible to vote twice");
+		require(is_voting[_index][msg.sender] == false, "not possible to vote twice");
 		is_voting[_index][msg.sender] == true;
 		if (!_notice)
 			tab[_index].count_against++;
